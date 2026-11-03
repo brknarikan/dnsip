@@ -1,0 +1,18 @@
+services:
+  dnsip-server:
+    build: .
+    container_name: dnsip-server
+    restart: unless-stopped
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+      - "8080:8080/tcp"
+    environment:
+      - DNSIP_BASE_DOMAIN=${DNSIP_BASE_DOMAIN:-ornekalanadi.com}
+      - DNSIP_SERVER_IP=${DNSIP_SERVER_IP:-127.0.0.1}
+      - DNSIP_ADMIN_USER=${DNSIP_ADMIN_USER:-admin}
+      - DNSIP_ADMIN_PASS=${DNSIP_ADMIN_PASS:-admin123}
+      - DNSIP_DNS_PORT=53
+      - DNSIP_HTTP_PORT=8080
+    volumes:
+      - ./data:/app/data
