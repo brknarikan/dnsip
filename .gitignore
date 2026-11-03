@@ -1,0 +1,23 @@
+# Python & Virtual Env
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# PyInstaller Build Outputs
+build/
+dist/
+*.spec
+
+# Database & Local Secrets
+server/data/
+*.db
+*.db-shm
+*.db-wal
+config.json
+
+# OS Files
+.DS_Store
+Thumbs.db
